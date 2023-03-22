@@ -5,6 +5,7 @@ import mvc.AppPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 
 public class CasinoPanel extends AppPanel {
@@ -41,7 +42,7 @@ public class CasinoPanel extends AppPanel {
         roll.addActionListener(this);
         controlPanel.add(roll);
     }
-
+    // In response to a property change
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         super.propertyChange(evt);
@@ -50,6 +51,15 @@ public class CasinoPanel extends AppPanel {
         wins_view.setText(String.valueOf(c.getWins()));
         losses_view.setText(String.valueOf(c.getLosses()));
 
+    }
+    // In response to a action peformed
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
+        Casino c = (Casino)model;
+        total_View.setText("" + (c.getDie1() + c.getDie2()));
+        wins_view.setText(String.valueOf(c.getWins()));
+        losses_view.setText(String.valueOf(c.getLosses()));
     }
 
     public static void main(String[] args){
