@@ -2,25 +2,29 @@ package casinoroyale;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 public class Dot extends JComponent {
-    private Ellipse2D.Double dot;
     private Color dotcolor;
 
-    public Dot(int x, int y, Color c){
-        dot = new Ellipse2D.Double(x, y, 10, 10);
-        dotcolor = c;
-    }
-    public Dot(int x, int y){
-        dot = new Ellipse2D.Double(x, y, 10, 10);
+    public Dot(){
         dotcolor = Color.BLACK;
     }
+    public Dot(Color color){
+        dotcolor = color;
+    }
 
-    public void draw(Graphics2D gc) {
+    public void paintComponent(Graphics gc) {
         Color oldColor = gc.getColor();
         gc.setColor(dotcolor);
-        gc.fill(dot);
+        gc.fillOval(10, 10, 10, 10);
         gc.setColor(oldColor);
+    }
+
+    public Color getColor() {
+        return dotcolor;
+    }
+
+    public void setColor(Color dotcolor) {
+        this.dotcolor = dotcolor;
     }
 }
