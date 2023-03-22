@@ -17,21 +17,21 @@ public class CasinoPanel extends AppPanel {
         Casino casino = (Casino)model;
 
         JPanel p = new JPanel();
-        total = new JLabel("Total");
+        total = new JLabel("Total:");
         total_View = new JLabel(String.valueOf(casino.getDie1() + casino.getDie2()));
         p.add(total);
         p.add(total_View);
         controlPanel.add(p);
 
         p = new JPanel();
-        wins = new JLabel("Wins");
+        wins = new JLabel("Wins:");
         wins_view = new JLabel(String.valueOf(casino.getWins()));
         p.add(wins);
         p.add(wins_view);
         controlPanel.add(p);
 
         p = new JPanel();
-        losses = new JLabel("Losses");
+        losses = new JLabel("Losses:");
         losses_view = new JLabel(String.valueOf(casino.getLosses()));
         p.add(losses);
         p.add(losses_view);
