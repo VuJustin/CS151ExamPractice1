@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -14,9 +16,10 @@ import java.io.ObjectOutputStream;
 /*
  * This is the MVC controller.
     - AppPanel is missing implementation of PropertyChangeListener
+    * What do we include in propertyChange method? Revalidate()? repaint()?
  */
 
-public class AppPanel extends JPanel implements ActionListener {
+public class AppPanel extends JPanel implements ActionListener, PropertyChangeListener {
     protected Model model;
     protected JPanel controlPanel;
     private View view;
@@ -157,4 +160,8 @@ public class AppPanel extends JPanel implements ActionListener {
         frame.setVisible(true);
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        revalidate();
+    }
 }
