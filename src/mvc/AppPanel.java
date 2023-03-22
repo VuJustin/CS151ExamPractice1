@@ -13,13 +13,12 @@ import java.io.ObjectOutputStream;
 
 /*
  * This is the MVC controller.
-    Problems with: New, Save, Open
-    Button in wrong place
+    - AppPanel is missing implementation of PropertyChangeListener
  */
 
 public class AppPanel extends JPanel implements ActionListener {
     protected Model model;
-    protected ControlPanel controls;
+    protected JPanel controlPanel;
     private View view;
     private AppFactory appFactory;
     private SafeFrame frame;
@@ -34,11 +33,12 @@ public class AppPanel extends JPanel implements ActionListener {
         view = appFactory.makeView(model);
         view.setBackground(Color.GRAY);
         // Control Panel created
-        controls = new ControlPanel();
-        controls.setBackground(Color.PINK);
-        controls.setLayout((new GridLayout(4, 2)));
-        setLayout((new GridLayout(1, 2)));
-        add(controls);
+        controlPanel = new JPanel();
+        controlPanel.setBackground(Color.PINK);
+        controlPanel.setLayout((new GridLayout (4,2)));
+        // Setting layout to have controlPanel & View
+        setLayout((new GridLayout(1,2)));
+        add(controlPanel);
         add(view);
         // create my frame with menus and display it
         frame = new SafeFrame();
@@ -155,33 +155,6 @@ public class AppPanel extends JPanel implements ActionListener {
 
     public void display() {
         frame.setVisible(true);
-    }
-
-    // Added a insertComponent to add components into control panel
-    public void insertComponent(JComponent a) {
-        controls.add(a);
-    }
-
-    /*
-     * It's often handy to have control panel as an
-     * innerclass so its controls can be accessed from
-     * outer class and vice-versa. It also encapsulates all the messy layout logic
-     */
-    class ControlPanel extends JPanel {
-        public JPanel controlPanel;
-
-        public ControlPanel() {
-            setBackground(Color.PINK);
-            controlPanel = new JPanel();
-            /* Should Control Panel add buttons for mvc? */
-            /* Adding Action Listeners to the buttons and adding it into the panel */
-        }
-
-        public void addC(JComponent a) {
-            controlPanel = new JPanel();
-            controlPanel.add(a);
-            add(a);
-        }
     }
 
 }

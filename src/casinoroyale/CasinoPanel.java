@@ -17,7 +17,8 @@ public class CasinoPanel extends AppPanel {
         roll = new JButton("Roll");
         roll.addActionListener(this);
 
-        super.insertComponent(roll);
+        //super.insertComponent(roll);
+        controlPanel.add(roll);
     }
    public static void main(String[] args){
        AppFactory factory = new CasinoFactory();

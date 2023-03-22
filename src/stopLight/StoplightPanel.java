@@ -13,8 +13,8 @@ public class StoplightPanel extends AppPanel {
 
         // Was orginally controlPanel.add, changed to super.add()
         // Fixed
-        super.insertComponent(change);
-
+        //super.insertComponent(change);
+        controlPanel.add(change);
     }
 
     public static void main(String[] args) {

@@ -33,6 +33,16 @@ public class MinefieldPanel extends AppPanel {
 
         // Was orginally controlPanel.add, changed to super.add()
         // Fixed
+        controlPanel.add(northButton);
+        controlPanel.add(southButton);
+        controlPanel.add(eastButton);
+        controlPanel.add(westButton);
+        controlPanel.add(northeastButton);
+        controlPanel.add(northwestButton);
+        controlPanel.add(southeastButton);
+        controlPanel.add(southwestButton);
+
+        /*
         super.insertComponent(northButton);
         super.insertComponent(southButton);
         super.insertComponent(eastButton);
@@ -41,7 +51,7 @@ public class MinefieldPanel extends AppPanel {
         super.insertComponent(northwestButton);
         super.insertComponent(southeastButton);
         super.insertComponent(southwestButton);
-
+        */
     }
 
     public static void main(String[] args) {
