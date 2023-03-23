@@ -42,6 +42,7 @@ public class CasinoPanel extends AppPanel {
         roll.addActionListener(this);
         controlPanel.add(roll);
     }
+
     // In response to a property change
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
@@ -52,6 +53,8 @@ public class CasinoPanel extends AppPanel {
         losses_view.setText(String.valueOf(c.getLosses()));
 
     }
+
+    /*
     // In response to a action peformed
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -61,7 +64,7 @@ public class CasinoPanel extends AppPanel {
         wins_view.setText(String.valueOf(c.getWins()));
         losses_view.setText(String.valueOf(c.getLosses()));
     }
-
+    */
     public static void main(String[] args){
        AppFactory factory = new CasinoFactory();
        AppPanel a = new CasinoPanel(factory);

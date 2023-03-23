@@ -32,6 +32,7 @@ public class AppPanel extends JPanel implements ActionListener, PropertyChangeLi
         appFactory = factory;
         // create model, install controls & view
         model = appFactory.makeModel();
+        model.addPropertyChangeListener(this);
         // Setting the name of model
         view = appFactory.makeView(model);
         view.setBackground(Color.GRAY);
